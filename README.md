@@ -1,7 +1,7 @@
 Budgetizer
 ==========
 
-A little demi-app to help me streamline my job- and apartment-search process.
+A little demi-app to help me streamline my job- and apartment-search process. See it in action here: http://www.gooble.biz/budgetizer
 
 My budget spreadsheet was getting a little crowded considering the fact that I needed different values for every place
 I was considering moving to. So I built this to allow me to play with potential salaries and apartment prices easily

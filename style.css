@@ -1,0 +1,160 @@
+html {
+    background-color: rgb(255, 238, 232);
+    box-shadow: inset 0px 0px 400px rgba(255, 112, 0, .3);
+}
+body {
+    font-family: 'Helvetica Neue', Helvetica, sans-serif;
+    text-align: center;
+}
+h1 {
+    text-align: center;
+    font-weight: 100;
+    font-size: 3em;
+    margin-bottom: 20px;
+    font-style: italic;
+    /*text-shadow: 5px 5px 0px rgb(255, 0, 224);*/
+}
+h1 a {
+    text-decoration: none;
+    color: black;
+}
+a {
+    color: rgb(255, 0, 224);
+}
+table {
+    border-collapse:collapse;
+    width: 100%;
+}
+form {
+    margin: 0;
+}
+.label {
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: .7em;
+    vertical-align: top;
+    width: 100px;
+    text-align: right;
+}
+.table-subheading {
+    margin: .2em 0 0 0;
+    font-size: .9em;
+    display: block;
+    background-color: rgb(214, 214, 214);
+    padding: .1em;
+}
+.container {
+    max-width: 98%;
+    box-sizing: border-box;
+    margin: 0 1% 0 1%;
+    display: inline-block;
+    vertical-align: top;
+    border-radius: 3px;
+    box-shadow: 2px 2px 7px rgba(0,0,0,.3);
+}
+/* The box containing all input information */
+.container--inputs {
+    width: 358px;
+    padding: 10px;
+    background-color: rgb(74, 58, 82);
+    margin-bottom: 20px;
+}
+.container--inputs table {
+    color: white;
+}
+    .container--inputs .label {
+        padding-top: .7em;
+        width: 23%;
+    }
+    .field {
+        font-size: .8em;
+        width: 6em;
+    }
+        .field input,
+        .field option {
+            font-size: .9em;
+        }
+    .mod {
+        width: 3em;
+    }
+        .mod--rate {
+            width: 4em;
+        }
+        .mod--col {
+            width: 2.5em;
+        }
+    .caption {
+        font-style: italic;
+        color: rgb(192, 192, 192);
+        font-size: 8pt;
+    }
+    
+/* The box containing the spreadsheet */
+.container--budget {
+    background-color: white;
+    padding: 15px;
+    width: 450px;
+}
+.negative {
+    color: red;
+}
+.positive {
+    color: black;
+}
+.total-row {
+    font-weight: bold;
+}
+.heading th {
+    font-size: .9em;
+    text-align: right;
+}
+tr {
+    position: relative;
+    width: 100%;
+}
+td, th {
+    padding: .3em 10px;
+}
+.container--budget .label {
+    max-width: 30%;
+}
+    td.label {
+        text-transform: uppercase;
+        font-weight: bold;
+        font-size: .7em;
+        vertical-align: top;
+        padding: .3em 0;
+        text-align: right;
+    }
+.value-cell {
+    text-align: right;
+    width: 25%;
+    font-size: .8em;
+}
+.total-row {
+    font-size: 1.2em;
+
+}
+.total-row td {
+    border-top: 1px solid black;
+}
+
+
+@media screen and (max-width: 560px) {	
+    
+    h1 {
+        font-size: 2em;
+    }
+    .value-cell {
+        width: 33%;
+    }
+    .value-cell--weekly {
+        display: none;
+    }
+    
+     .field {
+        font-size: 1em;
+        width: 5em;
+    }
+
+}

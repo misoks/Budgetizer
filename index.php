@@ -9,8 +9,12 @@
     <script src="http://code.jquery.com/jquery-latest.min.js"></script>
     <script src="script.js"></script>
     <link rel="stylesheet" type="text/css" href="style.css" media="all">
+    
     <!-- Set the viewport width to device width for mobile -->
-  <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width" />
+  
+    <link rel="shortcut icon" href="favicon.png" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
 </head>
 
 <body>

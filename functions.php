@@ -77,6 +77,14 @@ if( isset($_POST['salary']) ) {
         $car = 1;
         $public_transit = 1;
     }
+    else if ($location == 'Kansas City') {
+        $state_tax = -$salary_adj * 0.06;
+        $city_tax = -$salary_adj * 0.01;
+        
+        $col = .97;
+        $car = 1;
+        $public_transit = 0;
+    }
     else if ($location == 'Other') {
         $state_tax = -($salary_adj - $_POST['s_mod1']) * $_POST['s_rate'] - $_POST['s_mod2'];
         $city_tax = -($salary_adj - $_POST['c_mod1']) * $_POST['c_rate'] - $_POST['c_mod2'];

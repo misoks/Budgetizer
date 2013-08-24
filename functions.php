@@ -85,6 +85,14 @@ if( isset($_POST['salary']) ) {
         $car = 1;
         $public_transit = 0;
     }
+    else if ($location == 'Madison') {
+        $state_tax = -($salary_adj - 21130) * 0.065 - 1135.66;
+        $city_tax = 0;
+        
+        $col = 1.07;
+        $car = 1;
+        $public_transit = 0;
+    }
     else if ($location == 'Other') {
         $state_tax = -($salary_adj - $_POST['s_mod1']) * $_POST['s_rate'] - $_POST['s_mod2'];
         $city_tax = -($salary_adj - $_POST['c_mod1']) * $_POST['c_rate'] - $_POST['c_mod2'];

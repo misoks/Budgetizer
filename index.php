@@ -57,6 +57,7 @@
                                 <option value="Boston" <?php if(isset($_POST['location']) && $location=="Boston"){echo 'selected';} ?>>Boston</option>
                                 <option value="Kansas City" <?php if(isset($_POST['location']) && $location=="Kansas City"){echo 'selected';} ?>>Kansas City</option>
                                 <option value="Madison" <?php if(isset($_POST['location']) && $location=="Madison"){echo 'selected';} ?>>Madison</option>
+                                <option value="Austin" <?php if(isset($_POST['location']) && $location=="Austin"){echo 'selected';} ?>>Austin</option>
                                 <option value="Other" id="other-location" <?php if(isset($_POST['location']) && $location=="Other"){echo 'selected';} ?>>Other</option>
                         <select>
                     </td>

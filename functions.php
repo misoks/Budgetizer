@@ -30,7 +30,7 @@ if( isset($_POST['salary']) ) {
     
     $location = $_POST['location'];
     if ($location == 'NYC') {
-        $state_tax = -($salary_adj)*0.0645;
+        $state_tax = -($salary_adj) * 0.0645;
         $city_tax = -($salary_adj - 60000) * 0.03648 - 2047;
         
         $col = 1.6;
@@ -38,7 +38,7 @@ if( isset($_POST['salary']) ) {
         $car = 0;
     }
     else if ($location == 'A2') {
-        $state_tax = -($salary_adj)*0.0435;
+        $state_tax = -($salary_adj) * 0.0435;
         $city_tax = 0;
         
         $col = 1;
@@ -46,8 +46,8 @@ if( isset($_POST['salary']) ) {
         $car = 1;
     }
     else if ($location == 'Cincinnati') {
-        $state_tax = -($salary_adj)*0.0411;
-        $city_tax = -($salary_adj)*0.021;
+        $state_tax = -($salary_adj) * 0.0411;
+        $city_tax = -($salary_adj) * 0.021;
         
         $col = .9;
         $public_transit = 0;
@@ -90,6 +90,14 @@ if( isset($_POST['salary']) ) {
         $city_tax = 0;
         
         $col = 1.07;
+        $car = 1;
+        $public_transit = 0;
+    }
+    else if ($location == 'Austin') {
+        $state_tax = 0;
+        $city_tax = 0;
+        
+        $col = .94;
         $car = 1;
         $public_transit = 0;
     }

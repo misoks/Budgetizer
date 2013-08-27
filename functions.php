@@ -101,6 +101,14 @@ if( isset($_POST['salary']) ) {
         $car = 1;
         $public_transit = 0;
     }
+    else if ($location == 'Portland') {
+        $state_tax = -( (.05 * 3100) + (.07 * 4849) + ($salary_adj - 7951) * .09 );
+        $city_tax = -$salary_adj * .06318;
+        
+        $col = 1.1348;
+        $car = 1;
+        $public_transit = 0;
+    }
     else if ($location == 'Other') {
         $state_tax = -($salary_adj - $_POST['s_mod1']) * $_POST['s_rate'] - $_POST['s_mod2'];
         $city_tax = -($salary_adj - $_POST['c_mod1']) * $_POST['c_rate'] - $_POST['c_mod2'];

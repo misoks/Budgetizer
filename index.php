@@ -49,15 +49,16 @@
                     <td class="label">Location</td>
                     <td class="field">
                         <select name="location" id="location-list">
-                                <option value="NYC" <?php if(isset($_POST['location']) && $location=="NYC"){echo 'selected';} ?>>New York City</option>
-                                <option value="A2" <?php if(isset($_POST['location']) && $location=="A2"){echo 'selected';} ?>>Ann Arbor</option>
-                                <option value="Cincinnati" <?php if(isset($_POST['location']) && $location=="Cincinnati"){echo 'selected';} ?>>Cincinnati</option>
+                                <option value="NYC" <?php if(isset($_POST['location']) && $location=="NYC"){echo 'selected';} ?>>New York, NY</option>
+                                <option value="A2" <?php if(isset($_POST['location']) && $location=="A2"){echo 'selected';} ?>>Ann Arbor, MI</option>
+                                <option value="Cincinnati" <?php if(isset($_POST['location']) && $location=="Cincinnati"){echo 'selected';} ?>>Cincinnati, OH</option>
                                 <option value="DC-VA" <?php if(isset($_POST['location']) && $location=="DC-VA"){echo 'selected';} ?>>D.C. Metro (VA)</option>
-                                <option value="Memphis" <?php if(isset($_POST['location']) && $location=="Memphis"){echo 'selected';} ?>>Memphis</option>
-                                <option value="Boston" <?php if(isset($_POST['location']) && $location=="Boston"){echo 'selected';} ?>>Boston</option>
-                                <option value="Kansas City" <?php if(isset($_POST['location']) && $location=="Kansas City"){echo 'selected';} ?>>Kansas City</option>
-                                <option value="Madison" <?php if(isset($_POST['location']) && $location=="Madison"){echo 'selected';} ?>>Madison</option>
-                                <option value="Austin" <?php if(isset($_POST['location']) && $location=="Austin"){echo 'selected';} ?>>Austin</option>
+                                <option value="Memphis" <?php if(isset($_POST['location']) && $location=="Memphis"){echo 'selected';} ?>>Memphis, TN</option>
+                                <option value="Boston" <?php if(isset($_POST['location']) && $location=="Boston"){echo 'selected';} ?>>Boston, MA</option>
+                                <option value="Kansas City" <?php if(isset($_POST['location']) && $location=="Kansas City"){echo 'selected';} ?>>Kansas City, MO</option>
+                                <option value="Madison" <?php if(isset($_POST['location']) && $location=="Madison"){echo 'selected';} ?>>Madison, WI</option>
+                                <option value="Austin" <?php if(isset($_POST['location']) && $location=="Austin"){echo 'selected';} ?>>Austin, TX</option>
+                                <option value="Portland" <?php if(isset($_POST['location']) && $location=="Portland"){echo 'selected';} ?>>Portland, OR</option>
                                 <option value="Other" id="other-location" <?php if(isset($_POST['location']) && $location=="Other"){echo 'selected';} ?>>Other</option>
                         <select>
                     </td>

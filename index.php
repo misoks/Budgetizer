@@ -25,24 +25,28 @@
         <form method="post" action="index.php">
             <table class="">
                 <tr>
-                    <td class="label">Salary</td>
+                    <td class="label"><label for="salary">Salary</label></td>
                     <td class="field">
-                        $<input type="number" name="salary" value="<?php echo $salary ?>">
+                        $<input type="number" name="salary" id="salary" value="<?php echo $salary ?>">
                     </td>
                 </tr>
                 <tr>
-                    <td class="label">Rent</td>
+                    <td class="label"><label for="rent">Rent</label></td>
                     <td class="field">
-                        $<input type="number" name="rent" value="<?php echo -$rent ?>">
+                        $<input type="number" name="rent" id="rent" value="<?php echo -$rent ?>">
                     </td>
                 </tr>
                 <tr>
                     <td class="label">Utilities</td>
                     <td class="field">
-                        <input name="water" type="checkbox" <?php if(isset($_POST['water'])){echo 'checked';} ?>><label>Water</label><br>
-                        <input name="electricity" type="checkbox" <?php if(isset($_POST['electricity'])){echo 'checked';} ?>><label>Electricity</label><br>
-                        <input name="gas" type="checkbox" <?php if(isset($_POST['gas'])){echo 'checked';} ?>><label>Gas</label><br>
-                        <input name="cable" type="checkbox" <?php if(isset($_POST['cable'])){echo 'checked';} ?>><label>Cable</label>
+                        <input name="water" type="checkbox" id="util-water" <?php if(isset($_POST['water'])){echo 'checked';} ?>>
+                            <label for="util-water">Water</label><br>
+                        <input name="electricity" type="checkbox" id="util-elec" <?php if(isset($_POST['electricity'])){echo 'checked';} ?>>
+                            <label for="util-elec">Electricity</label><br>
+                        <input name="gas" type="checkbox" id="util-gas" <?php if(isset($_POST['gas'])){echo 'checked';} ?>>
+                            <label for="util-gas">Gas</label><br>
+                        <input name="cable" type="checkbox" id="util-cable"<?php if(isset($_POST['cable'])){echo 'checked';} ?>>
+                            <label for="util-cable">Cable</label>
                     </td>
                 </tr>
                 <tr>

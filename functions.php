@@ -14,15 +14,10 @@ if( isset($_POST['salary']) ) {
 
     $salary = $_POST['salary'];
     $rent = -$_POST['rent'];
-   
-    //Student Loan Repayment Tax Deduction (Approx.)
-    $loan_deduc = -2500;
+
     
     //Amount to put into 401k each year
-    $retire401k = -1500;
-    
-    //Adjusted gross income, i.e. the taxable amount of income
-    $salary_adj = $salary + $loan_deduc + $retire401k;
+    $retire401k = -(.02) * $salary;
     
     //By default, no car and no public transit
     $car = 0;
@@ -30,82 +25,123 @@ if( isset($_POST['salary']) ) {
     
     $location = $_POST['location'];
     if ($location == 'NYC') {
+        $col = 1.6;
+        
+        $health_ins = -1200 * $col;
+        $salary_adj = $salary + $retire401k + $health_ins;
+        
         $state_tax = -($salary_adj) * 0.0645;
         $city_tax = -($salary_adj - 60000) * 0.03648 - 2047;
         
-        $col = 1.6;
         $public_transit = 1.5;
         $car = 0;
     }
     else if ($location == 'A2') {
+    $health_ins = -1200 * $col;
+        $col = 1;
+        
+        $health_ins = -1200 * $col;
+        $salary_adj = $salary + $retire401k + $health_ins;
+        
         $state_tax = -($salary_adj) * 0.0435;
         $city_tax = 0;
         
-        $col = 1;
         $public_transit = 0;
         $car = 1;
     }
     else if ($location == 'Cincinnati') {
+        $col = .9;
+        
+        $health_ins = -1200 * $col;
+        $salary_adj = $salary + $retire401k + $health_ins;
+        
         $state_tax = -($salary_adj) * 0.0411;
         $city_tax = -($salary_adj) * 0.021;
         
-        $col = .9;
         $public_transit = 0;
         $car = 1;
     }
     else if ($location == 'DC-VA') {
+        $col = 1.4;
+        
+        $health_ins = -1200 * $col;
+        $salary_adj = $salary + $retire401k + $health_ins;
+        
         $state_tax = -($salary_adj - 17000) * 0.0575 - 720;
         $city_tax = 0;
         
-        $col = 1.4;
         $car = 1;
         $public_transit = 1;
     }
     else if ($location == 'Memphis') {
+        $col = .85;
+        
+        $health_ins = -1200 * $col;
+        $salary_adj = $salary + $retire401k + $health_ins;
+        
         $state_tax = 0;
         $city_tax = 0;
         
-        $col = .85;
         $car = 1;
         $public_transit = 0;
     }
     else if ($location == 'Boston') {
+        $col = 1.4;
+        
+        $health_ins = -1200 * $col;
+        $salary_adj = $salary + $retire401k + $health_ins;
+        
         $state_tax = -$salary_adj * 0.053;
         $city_tax = 0;
         
-        $col = 1.4;
         $car = 1;
         $public_transit = 1;
     }
     else if ($location == 'Kansas City') {
+        $col = .97;
+        
+        $health_ins = -1200 * $col;
+        $salary_adj = $salary + $retire401k + $health_ins;
+        
         $state_tax = -$salary_adj * 0.06;
         $city_tax = -$salary_adj * 0.01;
         
-        $col = .97;
         $car = 1;
         $public_transit = 0;
     }
     else if ($location == 'Madison') {
+        $col = 1.07;
+        
+        $health_ins = -1200 * $col;
+        $salary_adj = $salary + $retire401k + $health_ins;
+        
         $state_tax = -($salary_adj - 21130) * 0.065 - 1135.66;
         $city_tax = 0;
         
-        $col = 1.07;
         $car = 1;
         $public_transit = 0;
     }
     else if ($location == 'Austin') {
+        $col = .94;
+        
+        $health_ins = -1200 * $col;
+        $salary_adj = $salary + $retire401k + $health_ins;
+        
         $state_tax = 0;
         $city_tax = 0;
         
-        $col = .94;
         $car = 1;
         $public_transit = 0;
     }
     else if ($location == 'Portland') {
+        $col = 1.1348;
+        
+        $health_ins = -1200 * $col;
+        $salary_adj = $salary + $retire401k + $health_ins;
+        
         $state_tax = -( (.05 * 3100) + (.07 * 4849) + ($salary_adj - 7951) * .09 );
         $city_tax = -$salary_adj * .06318;
         
-        $col = 1.1348;
         $car = 1;
         $public_transit = 0;
     }
@@ -114,6 +150,7 @@ if( isset($_POST['salary']) ) {
         $city_tax = -($salary_adj - $_POST['c_mod1']) * $_POST['c_rate'] - $_POST['c_mod2'];
         
         $col = $_POST['col'];
+        $salary_adj = $salary + $retire401k + $health_ins;
         
         if ( isset($_POST['car']) && ($_POST['car'] == 'on') ) { $car = 1; }
         if (isset($_POST['transit']) && ($_POST['transit'] == 'on')) {$public_transit = 1;}
@@ -128,9 +165,13 @@ if( isset($_POST['salary']) ) {
     if (isset($_POST['cable']) && ($_POST['cable'] == 'on')) {$cable = 1;}
 
     $budget = array(
-        "Taxes" => array(
+        "Pre-Tax" => array(
             "Social Security" => -($salary * 0.062),
             "Medicare" => -($salary * 0.0145),
+            "Health Insurance" => $health_ins
+        ),
+        
+        "Taxes" => array(
             "Federal Tax" => -($salary_adj - 34500) * 0.25 - 4750,
             "State Tax" => $state_tax,
             "City Tax" => $city_tax
@@ -153,8 +194,8 @@ if( isset($_POST['salary']) ) {
         
         "Expenses" => array(
             "Phone" => -80 * 12,
-            "Hulu/Netflix" => -20 * 12,
-            "Food" => 12 * -300 * $col,
+            "Groceries" => 12 * -250 * $col,
+            "Restaurants" => 12 * -100 * $col,
             "Shopping" => 12 * -400 * $col,
         ),
         
@@ -163,5 +204,13 @@ if( isset($_POST['salary']) ) {
             "Loan Payment" => 12 * -507,
         ),
     );
+    if ($public_transit == 0) {
+        unset($budget["Transportation"]["Public Transit"]);
+    }
+    if ($car == 0) {
+        unset($budget["Transportation"]["Car Insurance"]);
+        unset($budget["Transportation"]["Car Payment"]);
+        unset($budget["Transportation"]["Gasoline"]);
+    }
 }
 ?>

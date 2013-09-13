@@ -163,6 +163,7 @@
         }
         ?>
         <?php $total =  $salary 
+                        + array_sum($budget['Pre-Tax']) 
                         + array_sum($budget['Taxes']) 
                         + array_sum($budget['Transportation']) 
                         + array_sum($budget['Apartment']) 

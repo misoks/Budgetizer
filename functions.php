@@ -166,12 +166,13 @@ if( isset($_POST['salary']) ) {
 
     $budget = array(
         "Pre-Tax" => array(
-            "Social Security" => -($salary * 0.062),
-            "Medicare" => -($salary * 0.0145),
+            "401k" => $retire401k,
             "Health Insurance" => $health_ins
         ),
         
         "Taxes" => array(
+            "Social Security" => -($salary * 0.062),
+            "Medicare" => -($salary * 0.0145),
             "Federal Tax" => -($salary_adj - 34500) * 0.25 - 4750,
             "State Tax" => $state_tax,
             "City Tax" => $city_tax
@@ -198,9 +199,7 @@ if( isset($_POST['salary']) ) {
             "Restaurants" => 12 * -100 * $col,
             "Shopping" => 12 * -400 * $col,
         ),
-        
         "Financial" => array(
-            "401k" => $retire401k,
             "Loan Payment" => 12 * -507,
         ),
     );

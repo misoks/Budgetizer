@@ -39,6 +39,7 @@
                 <tr>
                     <td class="label">Utilities</td>
                     <td class="field">
+                    <?php if( isset($_POST['salary']) ) { ?>
                         <input name="water" type="checkbox" id="util-water" <?php if(isset($_POST['water'])){echo 'checked';} ?>>
                             <label for="util-water">Water</label><br>
                         <input name="electricity" type="checkbox" id="util-elec" <?php if(isset($_POST['electricity'])){echo 'checked';} ?>>
@@ -47,6 +48,16 @@
                             <label for="util-gas">Gas</label><br>
                         <input name="cable" type="checkbox" id="util-cable"<?php if(isset($_POST['cable'])){echo 'checked';} ?>>
                             <label for="util-cable">Cable</label>
+                    <?php } else { ?>
+                        <input name="water" type="checkbox" id="util-water">
+                            <label for="util-water">Water</label><br>
+                        <input name="electricity" type="checkbox" id="util-elec" checked>
+                            <label for="util-elec">Electricity</label><br>
+                        <input name="gas" type="checkbox" id="util-gas" checked>
+                            <label for="util-gas">Gas</label><br>
+                        <input name="cable" type="checkbox" id="util-cable"checked>
+                            <label for="util-cable">Cable</label>
+                    <?php } ?>
                     </td>
                 </tr>
                 <tr>
@@ -171,9 +182,8 @@
                         + array_sum($budget['Financial']);
             $posneg_total = ispos($total);
         ?>
-        <table>
-        <tr class="total-row">
-        
+        <table class="total">
+        <tr>
             <td class="label value-cell">Total</td>
             <?php echo "
             <td class='$posneg_total value-cell value-cell--annual'>".money_format('$%i', $total)."</td>

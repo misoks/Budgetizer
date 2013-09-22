@@ -101,9 +101,6 @@ form {
 .positive {
     color: black;
 }
-.total-row {
-    font-weight: bold;
-}
 .heading th {
     font-size: .9em;
     text-align: right;
@@ -131,11 +128,13 @@ td, th {
     width: 25%;
     font-size: .8em;
 }
-.total-row {
+.total {
     font-size: 1.2em;
-
+    margin-top: .5em;
+    font-weight: bold;
 }
-.total-row td {
+.total td {
+    margin-top: .5em;
     border-top: 1px solid black;
 }
 
